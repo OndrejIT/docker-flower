@@ -1,0 +1,9 @@
+flower:
+  image: ondrejit/flower:latest
+  command: --config=flower_conf
+  environment:
+    BROKER: "redis://172.17.0.1:6379/1"
+  volumes:
+    - .:/srv/flower
+  ports:
+    - 5555:5555
