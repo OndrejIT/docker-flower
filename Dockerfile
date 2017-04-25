@@ -1,19 +1,16 @@
-FROM alpine:latest
+# vim:set ft=dockerfile:
+
+FROM docker.io/python:3-alpine
 MAINTAINER Ondrej Barta <ondrej@ondrej.it>
 
-RUN apk add --no-cache \
-	python3 && \
-	python3 -m ensurepip
+RUN \
+	apk --no-cache add tzdata && \
 
-RUN pip3 install --upgrade pip \
+	pip install --no-cache-dir \
 	redis==2.10.5 \
-	flower==0.9.1 && \
-	rm -rf ~/.cache
+	https://github.com/mher/flower/zipball/master#egg=flower
 
-RUN adduser -S www-data
-USER www-data
-
-WORKDIR /srv/flower
+USER nobody
 
 EXPOSE 5555
 

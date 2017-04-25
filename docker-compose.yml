@@ -1,9 +1,11 @@
-flower:
-  image: ondrejit/flower:latest
-  command: --config=flower_conf
-  environment:
-    BROKER: "redis://172.17.0.1:6379/1"
-  volumes:
-    - .:/srv/flower
-  ports:
-    - 5555:5555
+version: "2"
+
+services:
+  flower:
+    image: ondrejit/flower:latest
+    build: .
+    command: --broker=redis://172.17.0.1:6379/1
+    environment:
+      TZ: Europe/Prague
+    ports:
+      - 5555:5555
