@@ -8,7 +8,7 @@ RUN \
 
 	pip install --no-cache-dir \
 	redis==2.10.5 \
-	https://github.com/mher/flower/zipball/master#egg=flower
+	flower==0.9.2
 
 USER nobody
 
