@@ -7,8 +7,8 @@ RUN \
 	apk --no-cache add tzdata && \
 
 	pip install --no-cache-dir \
-	redis==2.10.5 \
-	flower==0.9.2
+	redis \
+	https://github.com/mher/flower/zipball/master
 
 USER nobody
 
