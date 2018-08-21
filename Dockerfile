@@ -1,6 +1,6 @@
 # vim:set ft=dockerfile:
 
-FROM docker.io/python:3-alpine
+FROM docker.io/python:3.6-alpine
 MAINTAINER Ondrej Barta <ondrej@ondrej.it>
 
 RUN \
