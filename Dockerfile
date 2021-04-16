@@ -1,14 +1,12 @@
-# vim:set ft=dockerfile:
-
-FROM docker.io/python:3.6-alpine
+FROM docker.io/python:3.8-alpine
 MAINTAINER Ondrej Barta <ondrej@ondrej.it>
 
 RUN \
-	apk --no-cache add tzdata && \
+	apk --no-cache add tzdata ca-certificates && update-ca-certificates && \
 
 	pip install --no-cache-dir \
-	redis \
-	https://github.com/mher/flower/zipball/master
+		redis \
+		flower
 
 USER nobody
 
